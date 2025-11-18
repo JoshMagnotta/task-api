@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -19,4 +18,12 @@ model Task {
   title       String
   completed   Boolean? @default(false)
   @@map("tasks")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String
+  role     String   @default("USER")
+  @@map("users")
 }
