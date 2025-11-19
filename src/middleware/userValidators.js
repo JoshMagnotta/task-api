@@ -15,9 +15,7 @@ export const validateUser = [
     body('password')
     .exists({values: 'false'})
     .withMessage('password is required')
-    .bail()
-    .isLength({min: 8, max: 64})
-    .withMessage('password must be between 8 and 64 characters'),
+    .bail(),
     checkValidationResults
 ];
 
